@@ -1,0 +1,65 @@
+# general settings
+name: EFNet_Finetune_test
+model_type: ImageEventRestorationModel
+scale: 1
+num_gpu: 1 # 4
+manual_seed: 10
+
+datasets:
+  category: REBlur
+  test:
+    name: gopro-bestmodel-test
+    type: H5ImageDataset
+
+
+    # dataroot: /cluster/work/cvl/leisun/REBlur_addition # seems h5
+    dataroot: /cluster/work/cvl/leisun/REBlur/test # HQBlur
+
+    # keep true if use events
+    norm_voxel: true
+    return_voxel: true
+
+    return_mask: true # dataloader yields mask   loss
+    use_mask: true # use mask in model(data)     mask as input in model
+
+    filename_tmpl: '{}'
+    io_backend:
+      type: h5
+
+    # gt_size: 256
+    crop_size: 256
+    use_flip: true
+    use_rot: true
+
+    # data loader settings
+    use_shuffle: true
+    num_worker_per_gpu: 3
+    batch_size_per_gpu: 4 
+    dataset_enlarge_ratio: 1 
+    prefetch_mode: cpu
+    num_prefetch_queue: 2
+
+# network structures
+network_g:
+  type: EFNet 
+  wf: 64 #64
+  fuse_before_downsample: true
+
+
+# path
+path:
+  pretrain_network_g: /cluster/work/cvl/leisun/log/experiments/EV_Transformer_channelattention_simple_20witer/models/net_g_latest.pth
+  strict_load_g: true
+  resume_state: ~
+  root: /cluster/work/cvl/leisun/EFNet_inference/  # set this option ONLY in TEST!!!
+
+val:
+  save_img: true
+  grids: ~
+  crop_size: ~
+  rgb2bgr: false # to my h5 data, its false
+
+dist_params:
+  backend: nccl
+  port: 29500
+

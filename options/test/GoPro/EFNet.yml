@@ -1,0 +1,55 @@
+# general settings
+name: EFNet_test
+model_type: TestImageEventRestorationModel
+scale: 1
+num_gpu: 1 # set num_gpu: 0 for cpu mode
+manual_seed: 10
+
+# dataset and data loader settings
+datasets:
+  category: GoPro # or REBlur
+  test:
+    name: gopro-bestmodel-test
+    type: H5ImageDataset
+
+    dataroot: /cluster/work/cvl/leisun/GOPRO_fullsize_h5_bin6_ver3/test # for debug
+
+    # add
+    norm_voxel: true
+    return_voxel: true
+    return_gt_frame: false
+    return_mask: true 
+    use_mask: true 
+
+    crop_size: ~
+    use_flip: false
+    use_rot: false
+    io_backend:
+      type: h5
+
+
+# network structures
+network_g:
+  type: EFNet
+  wf: 64
+  fuse_before_downsample: true
+
+
+# path
+path:
+  pretrain_network_g: /cluster/work/cvl/leisun/log/experiments/EVTransformer-Finetune-2e4-300iter/models/net_g_latest.pth
+  strict_load_g: true
+  resume_state: ~
+  root: /cluster/work/cvl/leisun/EFNet_inference/  # set this option ONLY in TEST!!!
+
+# validation settings
+val:
+  save_img: true
+  grids: ~
+  crop_size: ~
+  rgb2bgr: false # to my h5 data, its false
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500

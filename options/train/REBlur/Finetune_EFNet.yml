@@ -1,0 +1,132 @@
+# general settings
+name: EFNet_Finetune
+model_type: ImageEventRestorationModel
+scale: 1
+num_gpu: 1 # 4
+manual_seed: 10
+
+datasets:
+  category: REBlur
+  train:
+    name: hqblur-h5-train
+    type: H5ImageDataset
+
+    # dataroot: ./datasets/train
+    dataroot: /cluster/work/cvl/leisun/HQBlur_bin6_ver3/test # HQBlur
+
+    # keep true if use events
+    norm_voxel: true
+    return_voxel: true
+
+    return_mask: true 
+    use_mask: true
+
+    filename_tmpl: '{}'
+    io_backend:
+      type: h5
+
+    crop_size: 256
+    use_flip: true
+    use_rot: true
+
+    # data loader settings
+    use_shuffle: true
+    num_worker_per_gpu: 3
+    batch_size_per_gpu: 4 
+    dataset_enlarge_ratio: 1  
+    prefetch_mode: cpu
+    num_prefetch_queue: 2
+
+  val:
+    name: hqblur-h5-test
+    type: H5ImageDataset
+
+    # dataroot: ./datasets/test
+    dataroot: /cluster/work/cvl/leisun/REBlur/test 
+
+    # keep true
+    norm_voxel: true  # true !
+    return_voxel: true
+
+    return_mask: true # dataloader yields mask
+    use_mask: true
+
+    io_backend:
+      type: h5
+
+    crop_size: ~ 
+    use_flip: false
+    use_rot: false
+
+# network structures
+network_g:
+  type: EFNet 
+  wf: 64 #64
+  fuse_before_downsample: true
+
+
+# path
+path:
+  pretrain_network_g: /cluster/work/cvl/leisun/log/experiments/EV_Transformer_channelattention_simple_20witer/models/net_g_latest.pth
+  strict_load_g: true
+  resume_state: ~
+  training_states: ~ # save current trainig model states, for resume
+
+
+# training settings
+train:
+  optim_g:
+    type: AdamW
+    lr: !!float 2e-5
+    weight_decay: !!float 1e-4
+    betas: [0.9, 0.99]
+
+
+  scheduler:
+    type: TrueCosineAnnealingLR
+    T_max: 600 # finetune
+    eta_min: !!float 1e-7
+
+  total_iter: 600 # finetune
+  warmup_iter: -1 # no warm up
+
+  # losses
+  pixel_opt:
+    type: PSNRLoss 
+    loss_weight: 0.5
+    reduction: mean
+
+# validation settings
+val:
+  val_freq: !!float 5e4 # 2e4
+  save_img: false  
+  grids: ~  
+  crop_size: ~  #
+  max_minibatch: 8  
+
+  metrics:
+    psnr:
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+    
+    # add ssim
+    ssim:
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false   
+
+# logging settings
+logger:
+  print_freq: 50
+  save_checkpoint_freq: !!float 100
+  use_tb_logger: true
+  wandb:
+    project: ~
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
+
