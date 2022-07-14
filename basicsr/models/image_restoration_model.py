@@ -103,18 +103,6 @@ class ImageRestorationModel(BaseModel):
 
         self.lq = data['frame'].to(self.device)
 
-
-       # 260->256 if SEEMS!
-        if self.opt['network_g'].get('type') == 'SRN' or self.opt['network_g'].get('type') == 'HINet':
-            self.lq = self.lq[:,:,:256,:]
-
-        if 'frame_gt' in data:
-            self.gt = data['frame_gt'].to(self.device)
-
-            if self.opt['network_g'].get('type') == 'SRN' or self.opt['network_g'].get('type') == 'HINet':
-                # 260->256 if SEEMS!
-                self.gt = self.gt[:,:,:256,:]
-
         
 
     def transpose(self, t, trans_idx):

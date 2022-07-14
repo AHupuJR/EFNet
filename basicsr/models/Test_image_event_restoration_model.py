@@ -24,6 +24,7 @@ class TestImageEventRestorationModel(BaseModel):
         self.net_g = self.model_to_device(self.net_g)
         self.print_network(self.net_g)
 
+
         # load pretrained models
         load_path = self.opt['path'].get('pretrain_network_g', None)
         if load_path is not None:
@@ -99,7 +100,7 @@ class TestImageEventRestorationModel(BaseModel):
         self.lq = data['frame'].to(self.device)
         self.voxel=data['voxel'].to(self.device)
         self.seq_name = data ['seq'] # add seq name
-        if self.opt['datasets']['category'] == 'REBlur':
+        if self.opt['dataset_name'] == 'REBlur':
             # 260->256 if REBlur
             self.lq = self.lq[:,:,:256,:]
             self.voxel = self.voxel[:,:,:256,:]
@@ -109,13 +110,13 @@ class TestImageEventRestorationModel(BaseModel):
 
         if 'mask' in data:
             self.mask = data['mask'].to(self.device)
-            if self.opt['datasets']['category'] == 'REBlur':
+            if self.opt['dataset_name'] == 'REBlur':
             # 260->256 if REBlur
                 self.mask = self.mask[:,:,:256,:]
 
         if 'frame_gt' in data:
             self.gt = data['frame_gt'].to(self.device)
-            if self.opt['datasets']['category'] == 'REBlur':
+            if self.opt['dataset_name'] == 'REBlur':
             # 260->256 if REBlur
                 self.gt = self.gt[:,:,:256,:]
 

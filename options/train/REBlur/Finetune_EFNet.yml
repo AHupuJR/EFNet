@@ -6,13 +6,12 @@ num_gpu: 1 # 4
 manual_seed: 10
 
 datasets:
-  category: REBlur
   train:
     name: hqblur-h5-train
     type: H5ImageDataset
 
     # dataroot: ./datasets/train
-    dataroot: /cluster/work/cvl/leisun/HQBlur_bin6_ver3/test # HQBlur
+    dataroot: /cluster/work/cvl/leisun/REBlur/train # HQBlur
 
     # keep true if use events
     norm_voxel: true
@@ -58,6 +57,8 @@ datasets:
     use_flip: false
     use_rot: false
 
+dataset_name: REBlur
+
 # network structures
 network_g:
   type: EFNet 
@@ -67,7 +68,7 @@ network_g:
 
 # path
 path:
-  pretrain_network_g: /cluster/work/cvl/leisun/log/experiments/EV_Transformer_channelattention_simple_20witer/models/net_g_latest.pth
+  pretrain_network_g: ~ # pretrain path
   strict_load_g: true
   resume_state: ~
   training_states: ~ # save current trainig model states, for resume

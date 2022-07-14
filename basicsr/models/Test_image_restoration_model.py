@@ -97,7 +97,7 @@ class TestImageRestorationModel(BaseModel):
     def feed_data(self, data):
 
         self.lq = data['frame'].to(self.device)
-        if self.opt['datasets']['category'] == 'REBlur':
+        if self.opt['dataset_name'] == 'REBlur':
             # 260->256 if REBlur
             self.lq = self.lq[:,:,:256,:]
 
@@ -106,13 +106,13 @@ class TestImageRestorationModel(BaseModel):
 
         if 'mask' in data:
             self.mask = data['mask'].to(self.device)
-            if self.opt['datasets']['category'] == 'REBlur':
+            if self.opt['dataset_name'] == 'REBlur':
                 # 260->256 if REBlur
                 self.mask = self.mask[:,:,:256,:]
 
         if 'frame_gt' in data:
             self.gt = data['frame_gt'].to(self.device)
-            if self.opt['datasets']['category'] == 'REBlur':
+            if self.opt['dataset_name'] == 'REBlur':
                 # 260->256 if REBlur
                 self.gt = self.gt[:,:,:256,:]
 

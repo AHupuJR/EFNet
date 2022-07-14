@@ -6,12 +6,11 @@ num_gpu:  1 #4
 manual_seed: 10
 
 datasets:
-  category: GoPro # or REBlur
   train:
     name: gopro-h5-train
     type: H5ImageDataset
 
-    # dataroot: ./datasets/train
+    # dataroot: ./datasets/GoPro_scer/train
     dataroot: /cluster/work/cvl/leisun/GOPRO_fullsize_h5_bin6_ver3/train
 
     # keep true if use events
@@ -56,6 +55,7 @@ datasets:
     use_flip: false
     use_rot: false
 
+dataset_name: GoPro
 
 # network structures
 network_g:

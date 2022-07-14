@@ -7,7 +7,6 @@ manual_seed: 10
 
 # dataset and data loader settings
 datasets:
-  category: GoPro # or REBlur
   test:
     name: gopro-bestmodel-test
     type: H5ImageDataset
@@ -27,6 +26,7 @@ datasets:
     io_backend:
       type: h5
 
+dataset_name: GoPro
 
 # network structures
 network_g:

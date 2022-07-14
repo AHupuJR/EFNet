@@ -6,7 +6,6 @@ num_gpu: 1 # 4
 manual_seed: 10
 
 datasets:
-  category: REBlur
   test:
     name: gopro-bestmodel-test
     type: H5ImageDataset
@@ -38,6 +37,8 @@ datasets:
     dataset_enlarge_ratio: 1 
     prefetch_mode: cpu
     num_prefetch_queue: 2
+
+dataset_name: REBlur
 
 # network structures
 network_g:
