@@ -6,7 +6,7 @@ Event-based Fusion for Motion Deblurring with Cross-modal Attention
 
 
 ### News
-- July 14 2022: Our paper was accepted in ECCV 2022 as oral presentation (2.7% of the submission).
+- July 14 2022: :tada: :tada: Our paper was accepted in ECCV 2022 as oral presentation (2.7% of the submission).
 - July 14 2022: The repository is under construction.
 
 
