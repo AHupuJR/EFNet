@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Event-based Fusion for Motion Deblurring with Cross-modal Attention.">
+  <meta name="keywords" content="Event, Deblur, Attention">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event-based Fusion for Motion Deblurring with Cross-modal Attention</title>
+
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Event-based Fusion for Motion Deblurring with Cross-modal Attention</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://ahupujr.github.io">Lei Sun</a><sup>1,2</sup>,</span>
+            <span class="author-block">
+              <a href="https://people.ee.ethz.ch/~csakarid">Christos Sakaridis</a><sup>2</sup>,</span>
+            <span class="author-block">
+              <a href="https://jingyunliang.github.io">Jingyun Liang</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a>Qi Jiang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://yangkailun.com">Kailun Yang</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a>Peng Sun</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a>Yaozu Ye</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://wangkaiwei.org">Kaiwei Wang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=TwMib_QAAAAJ&hl">Luc Van Gool</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>ZhejiangUniversity,</span>
+            <span class="author-block"><sup>2</sup>ETH Zurich</span>
+            <span class="author-block"><sup>3</sup>KIT</span>
+            <span class="author-block"><sup>4</sup>KU Leuven</span>
+
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2112.00167"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2112.00167"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/AHupuJR/EFNet"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://github.com/AHupuJR/EFNet"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./figures/model.png"
+      class="model"
+      alt="model image."/>
+      <h2 class="subtitle has-text-centered">
+        EFNet restores blurry image with high temporal resolution events.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<!-- 
+<section class="hero is-light is-small">
+  <div class="hero-body">
+    <div class="container">
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-steve">
+          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/steve.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-chair-tp">
+          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/chair-tp.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-shiba">
+          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/shiba.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-fullbody">
+          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/fullbody.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-blueshirt">
+          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/blueshirt.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-mask">
+          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/mask.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-coffee">
+          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/coffee.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-toby">
+          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
+            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/toby2.mp4"
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+
+          <p>
+            Traditional frame-based cameras inevitably suffer from motion blur due to long exposure times.
+             As a kind of bio-inspired camera, the event camera records the intensity changes in 
+             an asynchronous way with high temporal resolution, providing valid image degradation information
+              within the exposure time. 
+          </p>
+          <p>
+             In this work, We rethink the eventbased image deblurring problem and unfold it into 
+             an end-to-end two-stage image restoration network. To effectively fuse event and image features,
+              we design an event-image cross-modal attention module applied at multiple levels of our network, 
+              which allows to focus on relevant features from the event branch and filter out noise. 
+          </p>
+            We also introduce a novel symmetric cumulative event representation specifically for
+              image deblurring as well as an event mask gated connection between the two stages of our network 
+              which helps avoid information loss. At the dataset level, to foster event-based motion deblurring 
+              and to facilitate evaluation on challenging real-world images, we introduce the Real Event Blur (REBlur)
+              dataset, captured with an event camera in an illumination controlled optical laboratory.
+          <p>
+            Our Event Fusion Network (EFNet) sets the new state of the art in motion deblurring, 
+            surpassing both the prior best-performing image-based method and all event-based methods 
+            with public implementations on the GoPro dataset (by up to 2.47dB) and on our REBlur dataset,
+            even in extreme blurry conditions.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <section class="hero teaser">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <img src="./figures/module.png"
+          class="model"
+          alt="model image."/>
+          <h2 class="subtitle has-text-centered">
+            Details about the moduels.
+          </h2>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Animation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Qualitative results</h2>
+
+        <!-- Interpolating. -->
+        <!-- <h3 class="title is-4">Interpolating states</h3> -->
+        <!-- <div class="content has-text-justified">
+          <p>
+            We can also animate the scene by interpolating the deformation latent codes of two input
+            frames. Use the slider here to linearly interpolate between the left frame and the right
+            frame.
+          </p>
+        </div> -->
+
+         <div class="hero-body">
+          <img src="./figures/GOPR0384_11_00.gif"
+           class="model"
+            alt="model image."/>
+             <h2 class="subtitle has-text-centered">
+             1
+          </h2>
+         </div>
+
+         <div class="hero-body">
+          <img src="./figures/GOPR0410_11_00.gif"
+           class="model"
+            alt="model image."/>
+             <h2 class="subtitle has-text-centered">
+             2
+          </h2>
+         </div>
+
+         <div class="hero-body">
+          <img src="./figures/GOPR0854_11_00.gif"
+           class="model"
+            alt="model image."/>
+             <h2 class="subtitle has-text-centered">
+             3
+          </h2>
+         </div>
+
+         <div class="hero-body">
+          <img src="./figures/camera-fast.gif"
+           class="model"
+            alt="model image."/>
+             <h2 class="subtitle has-text-centered">
+             4
+          </h2>
+         </div>
+         <div class="hero-body">
+          <img src="./figures/checkbox-slow.gif"
+           class="model"
+            alt="model image."/>
+             <h2 class="subtitle has-text-centered">
+             5
+          </h2>
+         </div>
+
+      </div>
+    </div>
+    <!--/ Animation. -->
+
+
+    <!-- Concurrent Work. -->
+    <!-- <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Related Links</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            There's a lot of excellent work that was introduced around the same time as ours.
+          </p>
+          <p>
+            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
+          </p>
+          <p>
+            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
+            both use deformation fields to model non-rigid scenes.
+          </p>
+          <p>
+            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
+          </p>
+          <p>
+            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
+          </p>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Concurrent Work. -->
+
+  </div>
+</section>
+
+
+<!-- <section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{park2021nerfies,
+  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
+  title     = {Nerfies: Deformable Neural Radiance Fields},
+  journal   = {ICCV},
+  year      = {2021},
+}</code></pre>
+  </div>
+</section> -->
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            Website template from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
