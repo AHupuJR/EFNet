@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Event-based Fusion for Motion Deblurring with Cross-modal Attention
 ---
 #### Lei Sun, Christos Sakaridis, Jingyun Liang, Qi Jiang, Kailun Yang, Peng Sun, Yaozu Ye, Kaiwei Wang, Luc Van Gool
@@ -133,4 +134,7 @@ Should you have any questions, please contact leo_sun@zju.edu.cn or leisun@ee.et
 This project is under the Apache 2.0 license, and it is based on [BasicSR](https://github.com/xinntao/BasicSR) which is under the Apache 2.0 license. Thanks to the inspirations and codes from [HINet](https://github.com/megvii-model/HINet) and [MPRNet](https://github.com/swz30/MPRNet)
 
 
+=======
+project page
+>>>>>>> 2724d3f925e076421867b82c3303c255b2b98387
 
