@@ -53,9 +53,9 @@ python setup.py develop --no_cuda_ext
 ### <span id="dataset_section"> Dataset </span> 
 - [ ] Add link
 
-GoPro events: [GoogleDrive](link)  [BaiduYunPan](link)
+GoPro events: [[GoogleDrive](link)]  [[BaiduYunPan](link)]
 
-REBlur: [GoogleDrive](link)  [BaiduYunPan](link)
+REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)]  [[BaiduYunPan](link)]
 
 
 ### Quick Start (Single Image and Corresponding Events Inference)
@@ -121,11 +121,18 @@ REBlur: [GoogleDrive](link)  [BaiduYunPan](link)
 
 ### Citations
 
-- [ ] TODO: add citation. 
+```
+@inproceedings{sun2022event,
+      author = {Sun, Lei and Sakaridis, Christos and Liang, Jingyun and Jiang, Qi and Yang, Kailun and Sun, Peng and Ye, Yaozu and Wang, Kaiwei and Van Gool, Luc},
+      title = {Event-Based Fusion for Motion Deblurring with Cross-modal Attention},
+      booktitle = {European Conference on Computer Vision (ECCV)},
+      year = 2022
+      }
+```
 
 
 ### Contact
-Should you have any questions, please contact leo_sun@zju.edu.cn or leisun@ee.ethz.ch.
+Should you have any questions, please feel free to contact leo_sun@zju.edu.cn or leisun@ee.ethz.ch.
 
 
 ### License and Acknowledgement
