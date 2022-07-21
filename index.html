@@ -41,6 +41,7 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title">Event-based Fusion for Motion Deblurring with Cross-modal Attention</h1>
+          <h2 class="title is-4">ECCV'2022 Oral</h2>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://ahupujr.github.io">Lei Sun</a><sup>1,2</sup>,</span>
@@ -71,8 +72,8 @@
 
           <div class="is-size-5 publication-authors">
             <span class="author-block"><sup>1</sup>ZhejiangUniversity,</span>
-            <span class="author-block"><sup>2</sup>ETH Zurich</span>
-            <span class="author-block"><sup>3</sup>KIT</span>
+            <span class="author-block"><sup>2</sup>ETH Zurich,</span>
+            <span class="author-block"><sup>3</sup>KIT,</span>
             <span class="author-block"><sup>4</sup>KU Leuven</span>
 
           </div>
@@ -150,64 +151,6 @@
   </div>
 </section>
 
-<!-- 
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="https://homes.cs.washington.edu/~kpar/nerfies/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-
 
 <section class="section">
   <div class="container is-max-desktop">
@@ -219,21 +162,23 @@
 
           <p>
             Traditional frame-based cameras inevitably suffer from motion blur due to long exposure times.
-             As a kind of bio-inspired camera, the event camera records the intensity changes in 
-             an asynchronous way with high temporal resolution, providing valid image degradation information
-              within the exposure time. 
+            As a kind of bio-inspired camera, the event camera records the intensity changes in 
+            an asynchronous way with high temporal resolution, providing valid image degradation information
+            within the exposure time. 
           </p>
           <p>
-             In this work, We rethink the eventbased image deblurring problem and unfold it into 
-             an end-to-end two-stage image restoration network. To effectively fuse event and image features,
-              we design an event-image cross-modal attention module applied at multiple levels of our network, 
-              which allows to focus on relevant features from the event branch and filter out noise. 
+            In this work, We rethink the eventbased image deblurring problem and unfold it into 
+            an end-to-end two-stage image restoration network. To effectively fuse event and image features,
+            we design an event-image cross-modal attention module applied at multiple levels of our network, 
+            which allows to focus on relevant features from the event branch and filter out noise. 
           </p>
+          <p>
             We also introduce a novel symmetric cumulative event representation specifically for
-              image deblurring as well as an event mask gated connection between the two stages of our network 
-              which helps avoid information loss. At the dataset level, to foster event-based motion deblurring 
-              and to facilitate evaluation on challenging real-world images, we introduce the Real Event Blur (REBlur)
-              dataset, captured with an event camera in an illumination controlled optical laboratory.
+            image deblurring as well as an event mask gated connection between the two stages of our network 
+            which helps avoid information loss. At the dataset level, to foster event-based motion deblurring 
+            and to facilitate evaluation on challenging real-world images, we introduce the Real Event Blur (REBlur)
+            dataset, captured with an event camera in an illumination controlled optical laboratory.
+          </p>
           <p>
             Our Event Fusion Network (EFNet) sets the new state of the art in motion deblurring, 
             surpassing both the prior best-performing image-based method and all event-based methods 
@@ -245,18 +190,48 @@
     </div>
     <!--/ Abstract. -->
 
+
+    <!-- Modules -->
+    <section class="section">
     <section class="hero teaser">
       <div class="container is-max-desktop">
+        <h2 class="title is-3">Modules</h2>
         <div class="hero-body">
           <img src="./figures/module.png"
           class="model"
           alt="model image."/>
-          <h2 class="subtitle has-text-centered">
-            Details about the moduels.
+          <h2 class="subtitle has-text-justified">
+            <p>
+              <b>EICA</b> use multi-head attention mechanism to fuse event information with image. 
+            We transpose the feature maps to reduce the computation complexity from O(h<sup>2</sup>w<sup>2</sup>) to O(c<sup>2</sup>) 
+            for high resolution event-based image deblurring task.
+            </p>
+            <p>
+            <b>EMGC</b> selectively connect different areas of the image and the feature maps in the second stage. This is inspired by the observation that 
+            regions in which events occur are more severely degraded in the blurry image. We binarize the event and use the resulted "event mask" to guide the restoration.
+            </p>
           </h2>
+        </div>
+
+        <h2 class="title is-3">Event Representation</h2>
+        <div class="columns is-centered">
+        <div class="column is-full-width">
+          <p style="text-align: center;">
+          <img src="./figures/scer.png"
+          class="model"
+          alt="model image."
+          width="50%"/>
+         </p>
+          <h2 class="subtitle has-text-centered">
+          <b>Symmetric Cumulative Event Representation (SCER)</b> feed the asynchronous events to our network, and encodes the blurry information of the image by accumulate
+          events at symmetric endpoints.
+
+          </h2>
+        </div>
         </div>
       </div>
     </section>
+    <!-- Modules -->
 
 
     <!-- Paper video. -->
@@ -277,10 +252,10 @@
 <section class="section">
   <div class="container is-max-desktop">
 
-    <!-- Animation. -->
+    <!-- Results. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
-        <h2 class="title is-3">Qualitative results</h2>
+        <h2 class="title is-3">Qualitative Results</h2>
 
         <!-- Interpolating. -->
         <!-- <h3 class="title is-4">Interpolating states</h3> -->
@@ -291,14 +266,19 @@
             frame.
           </p>
         </div> -->
-
+        <h3 class="title is-4">GoPro</h3>
          <div class="hero-body">
+          <h2 class="subtitle has-text-justified">
+              <span style="width: 80px;; display:inline-block"> </span> 
+              <b>Blurry image</b>
+              <span style="width: 140px;; display:inline-block"> </span> 
+              <b>Each Channel in SCER</b>  
+              <span style="width: 160px;; display:inline-block"> </span>  
+              <b>Result</b>             
+          </h2>
           <img src="./figures/GOPR0384_11_00.gif"
            class="model"
             alt="model image."/>
-             <h2 class="subtitle has-text-centered">
-             1
-          </h2>
          </div>
 
          <div class="hero-body">
@@ -306,7 +286,7 @@
            class="model"
             alt="model image."/>
              <h2 class="subtitle has-text-centered">
-             2
+             
           </h2>
          </div>
 
@@ -315,16 +295,25 @@
            class="model"
             alt="model image."/>
              <h2 class="subtitle has-text-centered">
-             3
+             
           </h2>
          </div>
 
+         <h3 class="title is-4">REBlur</h3>
          <div class="hero-body">
+          <h2 class="subtitle has-text-justified">
+            <span style="width: 80px;; display:inline-block"> </span> 
+            <b>Blurry image</b>
+            <span style="width: 140px;; display:inline-block"> </span> 
+            <b>Each Channel in SCER</b>  
+            <span style="width: 160px;; display:inline-block"> </span>  
+            <b>Result</b>             
+        </h2>
           <img src="./figures/camera-fast.gif"
            class="model"
             alt="model image."/>
              <h2 class="subtitle has-text-centered">
-             4
+             
           </h2>
          </div>
          <div class="hero-body">
@@ -332,67 +321,39 @@
            class="model"
             alt="model image."/>
              <h2 class="subtitle has-text-centered">
-             5
+             
           </h2>
          </div>
 
       </div>
     </div>
-    <!--/ Animation. -->
 
-
-    <!-- Concurrent Work. -->
-    <!-- <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Concurrent Work. -->
 
   </div>
 </section>
 
 
-<!-- <section class="section" id="BibTeX">
+<section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{park2021nerfies,
-  author    = {Park, Keunhong and Sinha, Utkarsh and Barron, Jonathan T. and Bouaziz, Sofien and Goldman, Dan B and Seitz, Steven M. and Martin-Brualla, Ricardo},
-  title     = {Nerfies: Deformable Neural Radiance Fields},
-  journal   = {ICCV},
-  year      = {2021},
-}</code></pre>
+    <pre><code>@article{sun2021mefnet,
+      title={{MEFNet:} {Multi-scale} Event Fusion Network for Motion Deblurring},
+      author={Sun, Lei and Sakaridis, Christos and Liang, Jingyun and Jiang, Qi and Yang, Kailun and Sun, Peng and Ye, Yaozu and Wang, Kaiwei and Van Gool, Luc},
+      journal={arXiv preprint arXiv:2112.00167},
+      year={2021}
+    }</code></pre>
   </div>
-</section> -->
+</section>
 
 
 <footer class="footer">
   <div class="container">
     <div class="content has-text-centered">
       <a class="icon-link"
-         href="https://homes.cs.washington.edu/~kpar/nerfies/videos/nerfies_paper.pdf">
+         href="https://arxiv.org/abs/2112.00167">
         <i class="fas fa-file-pdf"></i>
       </a>
-      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+      <a class="icon-link" href="https://github.com/ahupujr" class="external-link" disabled>
         <i class="fab fa-github"></i>
       </a>
     </div>
