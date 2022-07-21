@@ -146,7 +146,7 @@
       class="model"
       alt="model image."/>
       <h2 class="subtitle has-text-centered">
-        EFNet restores blurry image with high temporal resolution events.
+        EFNet restores blurry image with high-temporal-resolution events.
       </h2>
     </div>
   </div>
@@ -168,7 +168,7 @@
             within the exposure time. 
           </p>
           <p>
-            In this work, We rethink the eventbased image deblurring problem and unfold it into 
+            In this work, We rethink the event-based image deblurring problem and unfold it into 
             an end-to-end two-stage image restoration network. To effectively fuse event and image features,
             we design an event-image cross-modal attention module applied at multiple levels of our network, 
             which allows to focus on relevant features from the event branch and filter out noise. 
@@ -203,13 +203,14 @@
           alt="model image."/>
           <h2 class="subtitle has-text-justified">
             <p>
-              <b>EICA</b> use multi-head attention mechanism to fuse event information with image. 
+              <b>EICA</b> uses a multi-head attention mechanism to fuse event and image features. 
             We transpose the feature maps to reduce the computation complexity from O(h<sup>2</sup>w<sup>2</sup>) to O(c<sup>2</sup>) 
-            for high resolution event-based image deblurring task.
+            for high-resolution event-based image deblurring.
             </p>
             <p>
-            <b>EMGC</b> selectively connect different areas of the image and the feature maps in the second stage. This is inspired by the observation that 
-            regions in which events occur are more severely degraded in the blurry image. We binarize the event and use the resulted "event mask" to guide the restoration.
+            <b>EMGC</b> selectively connects certain regions of the feature maps of the first stage of our network to the second stage. 
+            This is inspired by the observation that regions in which events occur are more severely degraded in the blurry image. 
+            We binarize the events and use the resulting "event mask" to guide the restoration.
             </p>
           </h2>
         </div>
@@ -224,8 +225,7 @@
           width="50%"/>
          </p>
           <h2 class="subtitle has-text-centered">
-          <b>Symmetric Cumulative Event Representation (SCER)</b> feed the asynchronous events to our network, and encodes the blurry information of the image by accumulate
-          events at symmetric endpoints.
+          <b>Symmetric Cumulative Event Representation (SCER)</b> feed the asynchronous events to our network, and encodes information about blur in the image by accumulating events at symmetric endpoints.
 
           </h2>
         </div>
@@ -337,12 +337,12 @@
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>@article{sun2021mefnet,
-      title={{MEFNet:} {Multi-scale} Event Fusion Network for Motion Deblurring},
-      author={Sun, Lei and Sakaridis, Christos and Liang, Jingyun and Jiang, Qi and Yang, Kailun and Sun, Peng and Ye, Yaozu and Wang, Kaiwei and Van Gool, Luc},
-      journal={arXiv preprint arXiv:2112.00167},
-      year={2021}
-    }</code></pre>
+    <pre><code>@inproceedings{sun2022event,
+      author = {Sun, Lei and Sakaridis, Christos and Liang, Jingyun and Jiang, Qi and Yang, Kailun and Sun, Peng and Ye, Yaozu and Wang, Kaiwei and Van Gool, Luc},
+      title = {Event-Based Fusion for Motion Deblurring with Cross-modal Attention},
+      booktitle = {European Conference on Computer Vision (ECCV)},
+      year = 2022
+      }</code></pre>
   </div>
 </section>
 
