@@ -51,17 +51,20 @@ python setup.py develop --no_cuda_ext
 ```
 
 ### <span id="dataset_section"> Dataset </span> 
-- [ ] Add link
+
+SCER h5 files:
+
+GoPro events: [[GoogleDrive](link)]  [[BaiduYunPan](link)]
+
+REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)]  [[BaiduYunPan](link)]
+
+We also provide scripts to convert raw event files to SCER using scripts in [./scripts/data_preparation/](./scripts/data_preparation/). You can also design your own event representation by modify the script. Raw event files download:
 
 GoPro events: [[GoogleDrive](link)]  [[BaiduYunPan](link)]
 
 REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)]  [[BaiduYunPan](link)]
 
 
-### Quick Start (Single Image and Corresponding Events Inference)
----
-
-- [ ] TODO
 
 ### Train
 ---
@@ -118,6 +121,8 @@ REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)]  [[BaiduYunPan](link)]
   * - [ ] TODO: add link. download [pretrained model](link) to ./experiments/pretrained_models/EFNet-REBlur.pth
   * ```python basicsr/test.py -opt options/test/REBlur/Finetune_EFNet.yml ```
   
+### Results
+TODO
 
 ### Citations
 
@@ -137,6 +142,6 @@ Should you have any questions, please feel free to contact leo_sun@zju.edu.cn or
 
 ### License and Acknowledgement
 
-This project is under the Apache 2.0 license, and it is based on [BasicSR](https://github.com/xinntao/BasicSR) which is under the Apache 2.0 license. Thanks to the inspirations and codes from [HINet](https://github.com/megvii-model/HINet) and [MPRNet](https://github.com/swz30/MPRNet)
+This project is under the Apache 2.0 license, and it is based on [BasicSR](https://github.com/xinntao/BasicSR) which is under the Apache 2.0 license. Thanks to the inspirations and codes from [HINet](https://github.com/megvii-model/HINet) and [event_utils](https://github.com/TimoStoff/event_utils)
 
 

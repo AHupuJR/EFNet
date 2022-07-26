@@ -1,6 +1,11 @@
 '''
 EFNet
-TODO: add citation
+@inproceedings{sun2022event,
+      author = {Sun, Lei and Sakaridis, Christos and Liang, Jingyun and Jiang, Qi and Yang, Kailun and Sun, Peng and Ye, Yaozu and Wang, Kaiwei and Van Gool, Luc},
+      title = {Event-Based Fusion for Motion Deblurring with Cross-modal Attention},
+      booktitle = {European Conference on Computer Vision (ECCV)},
+      year = 2022
+      }
 '''
 
 import torch
@@ -40,7 +45,7 @@ class SAM(nn.Module):
         return x1, img
 
 class EFNet(nn.Module):
-    def __init__(self, in_chn=3, ev_chn=7, wf=64, depth=3, fuse_before_downsample=True, relu_slope=0.2, num_heads=[1,2,4]):
+    def __init__(self, in_chn=3, ev_chn=6, wf=64, depth=3, fuse_before_downsample=True, relu_slope=0.2, num_heads=[1,2,4]):
         super(EFNet, self).__init__()
         self.depth = depth
         self.fuse_before_downsample = fuse_before_downsample
