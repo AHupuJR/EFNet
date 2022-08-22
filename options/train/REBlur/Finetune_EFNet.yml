@@ -7,11 +7,11 @@ manual_seed: 10
 
 datasets:
   train:
-    name: hqblur-h5-train
+    name: REBlur-h5-train
     type: H5ImageDataset
 
     # dataroot: ./datasets/train
-    dataroot: /cluster/work/cvl/leisun/REBlur/train # HQBlur
+    dataroot: /cluster/work/cvl/leisun/REBlur/train # REBlur
 
     # keep true if use events
     norm_voxel: true
@@ -37,7 +37,7 @@ datasets:
     num_prefetch_queue: 2
 
   val:
-    name: hqblur-h5-test
+    name: REBlur-h5-test
     type: H5ImageDataset
 
     # dataroot: ./datasets/test

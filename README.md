@@ -57,7 +57,12 @@ GoPro events: [[GoogleDrive](link)/TODO]  [[BaiduYunPan](https://pan.baidu.com/s
 
 GoPro raw events: [[GoogleDrive](link)/TODO]  [[BaiduYunPan](link)/TODO]
 
-REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)/TODO]  [[BaiduYunPan](https://pan.baidu.com/s/1-cpPBHRWsrtvAk4eqXtELw)/code: w000]
+We also provide scripts to convert raw event files to SCER using scripts in [./scripts/data_preparation/](./scripts/data_preparation/). You can also design your own event representation by modify the script. Raw event files download:
+
+GoPro events: [[GoogleDrive](link)]  [[BaiduYunPan](link)]
+
+REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)]  [[BaiduYunPan](link)]
+
 
 
 ### Train
@@ -115,6 +120,8 @@ REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)/TODO]  [[BaiduYunPan](http
   * Download [pretrained model](https://drive.google.com/file/d/1yMGnwfYsxWbVp7r-oc8ls9qnOEDavG3h/view?usp=sharing) to ./experiments/pretrained_models/EFNet-REBlur.pth
   * ```python basicsr/test.py -opt options/test/REBlur/Finetune_EFNet.yml ```
   
+### Results
+TODO
 
 ### Qualitative results
 All the qualitative results can be downloaded through Google Drive:
@@ -144,6 +151,6 @@ Should you have any questions, please feel free to contact leo_sun@zju.edu.cn or
 
 ### License and Acknowledgement
 
-This project is under the Apache 2.0 license, and it is based on [BasicSR](https://github.com/xinntao/BasicSR) which is under the Apache 2.0 license. Thanks to the inspirations and codes from [HINet](https://github.com/megvii-model/HINet) and [MPRNet](https://github.com/swz30/MPRNet)
+This project is under the Apache 2.0 license, and it is based on [BasicSR](https://github.com/xinntao/BasicSR) which is under the Apache 2.0 license. Thanks to the inspirations and codes from [HINet](https://github.com/megvii-model/HINet) and [event_utils](https://github.com/TimoStoff/event_utils)
 
 

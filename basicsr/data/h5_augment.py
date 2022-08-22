@@ -10,7 +10,7 @@ import random
 """
     Data augmentation functions.
 
-    heavily borrowed from https://github.com/TimoStoff/events_contrast_maximization
+    heavily borrowed from https://github.com/TimoStoff/event_utils
 
     @InProceedings{Stoffregen19cvpr,
     author = {Stoffregen, Timo and Kleeman, Lindsay},

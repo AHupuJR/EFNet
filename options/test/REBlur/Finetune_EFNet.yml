@@ -12,7 +12,7 @@ datasets:
 
 
     # dataroot: /cluster/work/cvl/leisun/REBlur_addition # seems h5
-    dataroot: /cluster/work/cvl/leisun/REBlur/test # HQBlur
+    dataroot: /cluster/work/cvl/leisun/REBlur/test # REBlur
 
     # keep true if use events
     norm_voxel: true
