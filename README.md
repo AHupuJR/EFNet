@@ -51,17 +51,14 @@ python setup.py develop --no_cuda_ext
 ```
 
 ### <span id="dataset_section"> Dataset </span> 
-- [ ] Add link
+Use GoPro events to train the model. If you want to use your own event representation instead of SCER, download GoPro raw events and use EFNet/scripts/data_preparation/make_voxels_esim.py to produce your own event representation.
 
-GoPro events: [[GoogleDrive](link)]  [[BaiduYunPan](link)]
+GoPro events: [[GoogleDrive](link)/TODO]  [[BaiduYunPan](https://pan.baidu.com/s/1TxWdMB2LjdlgIvuc6QN-Bg)/code: 3wm8]
 
-REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)]  [[BaiduYunPan](link)]
+GoPro raw events: [[GoogleDrive](link)/TODO]  [[BaiduYunPan](link)/TODO]
 
+REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)/TODO]  [[BaiduYunPan](https://pan.baidu.com/s/1-cpPBHRWsrtvAk4eqXtELw)/code: w000]
 
-### Quick Start (Single Image and Corresponding Events Inference)
----
-
-- [ ] TODO
 
 ### Train
 ---
@@ -88,7 +85,7 @@ REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)]  [[BaiduYunPan](link)]
   * ```python -m torch.distributed.launch --nproc_per_node=4 --master_port=4321 basicsr/train.py -opt options/train/GoPro/EFNet.yml --launcher pytorch```
 
 * eval
-  * - [ ] TODO: add link. download [pretrained model](link) to ./experiments/pretrained_models/EFNet-GoPro.pth
+  * Download [pretrained model](https://drive.google.com/file/d/19O-B-K4IODMENQblwHbSqNu0TX0IF-iA/view?usp=sharing) to ./experiments/pretrained_models/EFNet-GoPro.pth
   * ```python basicsr/test.py -opt options/test/GoPro/EFNet.yml  ```
   
 
@@ -115,9 +112,19 @@ REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)]  [[BaiduYunPan](link)]
   * ```python ./basicsr/train.py -opt options/train/REBlur/Finetune_EFNet.yml```
 
 * eval
-  * - [ ] TODO: add link. download [pretrained model](link) to ./experiments/pretrained_models/EFNet-REBlur.pth
+  * Download [pretrained model](https://drive.google.com/file/d/1yMGnwfYsxWbVp7r-oc8ls9qnOEDavG3h/view?usp=sharing) to ./experiments/pretrained_models/EFNet-REBlur.pth
   * ```python basicsr/test.py -opt options/test/REBlur/Finetune_EFNet.yml ```
   
+
+### Qualitative results
+All the qualitative results can be downloaded through Google Drive:
+
+[GoPro test](https://drive.google.com/file/d/17jXR5U9e3-8dXPUxB0-wBhDFg60Oe8US/view?usp=sharing)
+
+[REBlur test](https://drive.google.com/file/d/17jXR5U9e3-8dXPUxB0-wBhDFg60Oe8US/view?usp=sharing)
+
+[REBlur addition](https://drive.google.com/file/d/17jXR5U9e3-8dXPUxB0-wBhDFg60Oe8US/view?usp=sharing)
+
 
 ### Citations
 
