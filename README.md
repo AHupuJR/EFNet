@@ -1,4 +1,5 @@
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/mefnet-multi-scale-event-fusion-network-for/deblurring-on-gopro)](https://paperswithcode.com/sota/deblurring-on-gopro?p=mefnet-multi-scale-event-fusion-network-for)
+
 Event-based Fusion for Motion Deblurring with Cross-modal Attention
 ---
 #### Lei Sun, Christos Sakaridis, Jingyun Liang, Qi Jiang, Kailun Yang, Peng Sun, Yaozu Ye, Kaiwei Wang, Luc Van Gool
