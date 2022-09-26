@@ -8,6 +8,7 @@ Event-based Fusion for Motion Deblurring with Cross-modal Attention
 
 
 ### News
+- September 25: Update the dataset link. Datasets available now.
 - July 14 2022: :tada: :tada: Our paper was accepted in ECCV'2022 as oral presentation (2.7% of the submission).
 - July 14 2022: The repository is under construction.
 
@@ -55,15 +56,15 @@ python setup.py develop --no_cuda_ext
 ### <span id="dataset_section"> Dataset </span> 
 Use GoPro events to train the model. If you want to use your own event representation instead of SCER, download GoPro raw events and use EFNet/scripts/data_preparation/make_voxels_esim.py to produce your own event representation.
 
-GoPro events: [[GoogleDrive](link)/TODO]  [[BaiduYunPan](https://pan.baidu.com/s/1TxWdMB2LjdlgIvuc6QN-Bg)/code: 3wm8]
+GoPro with SCER: [[ETH_share_link](https://data.vision.ee.ethz.ch/csakarid/shared/EFNet/GOPRO.zip)]  [[BaiduYunPan](https://pan.baidu.com/s/1TxWdMB2LjdlgIvuc6QN-Bg)/code: 3wm8]
 
-GoPro raw events: [[GoogleDrive](link)/TODO]  [[BaiduYunPan](link)/TODO]
+REBlur with SCER: [[ETH_share_link](https://data.vision.ee.ethz.ch/csakarid/shared/EFNet/REBlur.zip)]  [[BaiduYunPan](https://pan.baidu.com/s/13v0CjlFUXt9TxXI0Co9tQQ?pwd=f6ha#list/path=%2F)/code:f6ha]
 
 We also provide scripts to convert raw event files to SCER using scripts in [./scripts/data_preparation/](./scripts/data_preparation/). You can also design your own event representation by modify the script. Raw event files download:
 
-GoPro events: [[GoogleDrive](link)]  [[BaiduYunPan](link)]
+GoPro with raw events: [[ETH_share_link](https://data.vision.ee.ethz.ch/csakarid/shared/EFNet/GOPRO_rawevents.zip)]  [[BaiduYunPan](link)/TODO]
 
-REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)]  [[BaiduYunPan](link)]
+REBlur with raw events: [[ETH_share_link](https://data.vision.ee.ethz.ch/csakarid/shared/EFNet/REBlur_rawevents.zip)]  [[BaiduYunPan](link)/TODO]
 
 
 
@@ -82,9 +83,9 @@ REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)]  [[BaiduYunPan](link)]
   
     ```bash
     ./datasets/
-    ./datasets/GoPro/
-    ./datasets/GoPro/train/
-    ./datasets/GoPro/test/
+    ./datasets/DATASET_NAME/
+    ./datasets/DATASET_NAME/train/
+    ./datasets/DATASET_NAME/test/
     ```
 
 * train
@@ -109,9 +110,9 @@ REBlur: &emsp;&emsp;&ensp;&nbsp; [[GoogleDrive](link)]  [[BaiduYunPan](link)]
   
     ```bash
     ./datasets/
-    ./datasets/REBlur/
-    ./datasets/REBlur/train/
-    ./datasets/REBlur/test/
+    ./datasets/DATASET_NAME/
+    ./datasets/DATASET_NAME/train/
+    ./datasets/DATASET_NAME/test/
     ```
 
 * finetune
