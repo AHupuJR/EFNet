@@ -16,7 +16,7 @@ Event-based Fusion for Motion Deblurring with Cross-modal Attention
 ### Real-time system
 https://github.com/AHupuJR/EFNet/assets/35628326/b888bb41-33f9-46de-b1b6-50d5291bf4ed
 
-Contributed by Xiaolei Gu from Jiaxing Research Institute, Zhejiang University. From left to right: blurry image, deblurred image, visualized events.
+Contributed by Xiaolei Gu, Xiao Jin from Jiaxing Research Institute, Zhejiang University. From left to right: blurry image, deblurred image, visualized events.
 
 Feel free to connect me for potential applications.
 
