@@ -8,6 +8,7 @@ Event-based Fusion for Motion Deblurring with Cross-modal Attention
 
 
 ### News
+- Octorber 2024: Real-time deblurring system built!! Please check our video demo in github page!
 - September 25: Update the dataset link. Datasets available now.
 - July 14 2022: :tada: :tada: Our paper was accepted in ECCV'2022 as oral presentation (2.7% of the submission).
 - July 14 2022: The repository is under construction.
