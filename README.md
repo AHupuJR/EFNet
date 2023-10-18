@@ -13,6 +13,10 @@ Event-based Fusion for Motion Deblurring with Cross-modal Attention
 - July 14 2022: :tada: :tada: Our paper was accepted in ECCV'2022 as oral presentation (2.7% of the submission).
 - July 14 2022: The repository is under construction.
 
+### Real-time system
+https://github.com/AHupuJR/EFNet/assets/35628326/b888bb41-33f9-46de-b1b6-50d5291bf4ed
+
+Contributed by Xiaolei Gu from Jiaxing Research Institute, Zhejiang University.
 
 ### Network Architecture
 
