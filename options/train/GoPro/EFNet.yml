@@ -1,5 +1,5 @@
 # general settings
-name: debug #EFNet_experiment 
+name: EFNet_experiment # add 'debug' for quick debug
 model_type: ImageEventRestorationModel
 scale: 1
 num_gpu:  1 #4

@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
 import torch
+import os
 from os import path as osp
 from torch.nn import functional as F
 
@@ -332,3 +333,15 @@ def duf_downsample(x, kernel_size=13, scale=4):
     if squeeze_flag:
         x = x.squeeze(0)
     return x
+
+def recursive_glob(rootdir='.', suffix=''):
+    """Performs recursive glob with given suffix and rootdir
+        :param rootdir is the root directory
+        :param suffix is the suffix to be searched
+    """
+    # return [os.path.join(looproot, filename)
+    #         for looproot, _, filenames in os.walk(rootdir)
+    #         for filename in filenames if filename.endswith(suffix)]
+    return [filename
+            for looproot, _, filenames in os.walk(rootdir)
+            for filename in filenames if filename.endswith(suffix)]

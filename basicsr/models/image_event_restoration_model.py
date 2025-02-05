@@ -101,6 +101,8 @@ class ImageEventRestorationModel(BaseModel):
             self.mask = data['mask'].to(self.device)
         if 'frame_gt' in data:
             self.gt = data['frame_gt'].to(self.device)
+        if 'image_name' in data:
+            self.image_name = data['image_name']
 
     def transpose(self, t, trans_idx):
         # print('transpose jt .. ', t.size())
@@ -265,10 +267,6 @@ class ImageEventRestorationModel(BaseModel):
 
         if self.opt['datasets']['train'].get('use_mask'):
             preds = self.net_g(x = self.lq, event = self.voxel, mask = self.mask)
-
-        elif self.opt['datasets']['train'].get('return_ren'):
-            preds = self.net_g(x = self.lq, event = self.voxel, ren = self.ren)
-
         else:
             preds = self.net_g(x = self.lq, event = self.voxel)
 
@@ -320,8 +318,6 @@ class ImageEventRestorationModel(BaseModel):
         if use_grad_clip:
             torch.nn.utils.clip_grad_norm_(self.net_g.parameters(), 0.01)
         self.optimizer_g.step()
-
-
         self.log_dict = self.reduce_loss_dict(loss_dict)
 
     def test(self):
@@ -338,10 +334,6 @@ class ImageEventRestorationModel(BaseModel):
 
                 if self.opt['datasets']['val'].get('use_mask'):
                     pred = self.net_g(x = self.lq[i:j, :, :, :], event = self.voxel[i:j, :, :, :], mask = self.mask[i:j, :, :, :])  # mini batch all in 
-
-                elif self.opt['datasets']['val'].get('return_ren'):
-                    pred = self.net_g(x = self.lq[i:j, :, :, :], event = self.voxel[i:j, :, :, :], ren = self.ren[i:j,:])
-
                 else:
                     pred = self.net_g(x = self.lq[i:j, :, :, :], event = self.voxel[i:j, :, :, :])  # mini batch all in 
             
@@ -393,8 +385,7 @@ class ImageEventRestorationModel(BaseModel):
         cnt = 0
 
         for idx, val_data in enumerate(dataloader):
-            img_name = '{:08d}'.format(cnt)
-
+            
             self.feed_data(val_data)
             if self.opt['val'].get('grids') is not None:
                 self.grids()
@@ -421,22 +412,22 @@ class ImageEventRestorationModel(BaseModel):
                 if self.opt['is_train']:
                     if cnt == 1: # visualize cnt=1 image every time
                         save_img_path = osp.join(self.opt['path']['visualization'],
-                                                img_name,
-                                                f'{img_name}_{current_iter}.png')
+                                                self.image_name,
+                                                f'{self.image_name}_{current_iter}.png')
                         
                         save_gt_img_path = osp.join(self.opt['path']['visualization'],
-                                                img_name,
-                                                f'{img_name}_{current_iter}_gt.png')
+                                                self.image_name,
+                                                f'{self.image_name}_{current_iter}_gt.png')
                 else:
                     print('Save path:{}'.format(self.opt['path']['visualization']))
                     print('Dataset name:{}'.format(dataset_name))
-                    print('Img_name:{}'.format(img_name))
+                    print('Img_name:{}'.format(self.image_name))
                     save_img_path = osp.join(
                         self.opt['path']['visualization'], dataset_name,
-                        f'{img_name}.png')
+                        f'{self.image_name}.png')
                     save_gt_img_path = osp.join(
                         self.opt['path']['visualization'], dataset_name,
-                        f'{img_name}_gt.png')
+                        f'{self.image_name}_gt.png')
                     
                 imwrite(sr_img, save_img_path)
                 imwrite(gt_img, save_gt_img_path)
@@ -456,7 +447,7 @@ class ImageEventRestorationModel(BaseModel):
                             metric_module, metric_type)(visuals['result'], visuals['gt'], **opt_)
 
             pbar.update(1)
-            pbar.set_description(f'Test {img_name}')
+            pbar.set_description(f'Test {self.image_name}')
             cnt += 1
         pbar.close()
 

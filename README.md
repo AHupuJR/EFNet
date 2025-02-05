@@ -8,10 +8,34 @@ Event-based Fusion for Motion Deblurring with Cross-modal Attention
 
 
 ### News
+- Febuary 2025: [NTIRE 2025](https://cvlai.net/ntire/2025/) [the First Challenge on Event-Based Image Deblurring](https://codalab.lisn.upsaclay.fr/competitions/21498) starts! Example config file is provided at `./options/train/HighREV/EFNet_HighREV_Deblur.yml`
 - Octorber 2024: Real-time deblurring system built!! Please check our video demo in github page!
 - September 25: Update the dataset link. Datasets available now.
 - July 14 2022: :tada: :tada: Our paper was accepted in ECCV'2022 as oral presentation (2.7% of the submission).
 - July 14 2022: The repository is under construction.
+
+### NTIRE 2025 the First Challenge on Event-Based Image Deblurring
+We provide a simple instruction here. For more details please refer to [this repo](https://github.com/AHupuJR/NTIRE2025_EventDeblur_challenge)
+
+#### HighREV dataset download
+
+[link](https://codalab.lisn.upsaclay.fr/my/datasets/download/9f275580-9b38-4984-b995-1e59e96b6111)
+
+command: `wget -O HighREV.zip "https://codalab.lisn.upsaclay.fr/my/datasets/download/9f275580-9b38-4984-b995-1e59e96b6111"`
+
+#### Dataset codes:
+`./basicsr/data/npz_image_dataset.py`
+
+#### Example:
+```
+git clone https://github.com/AHupuJR/EFNet
+cd EFNet
+pip install -r requirements.txt
+python setup.py develop --no_cuda_ext
+
+python ./basicsr/train.py -opt options/train/HighREV/EFNet_HighREV_Deblur.yml
+```
+
 
 ### Real-time system
 https://github.com/AHupuJR/EFNet/assets/35628326/b888bb41-33f9-46de-b1b6-50d5291bf4ed
@@ -79,7 +103,6 @@ GoPro with raw events: [[ETH_share_link](https://data.vision.ee.ethz.ch/csakarid
 REBlur with raw events: [[ETH_share_link](https://data.vision.ee.ethz.ch/csakarid/shared/EFNet/REBlur_rawevents.zip)]  [[BaiduYunPan](link)/TODO]
 
 
-
 ### Train
 ---
 #### GoPro
@@ -135,8 +158,6 @@ REBlur with raw events: [[ETH_share_link](https://data.vision.ee.ethz.ch/csakari
   * Download [pretrained model](https://drive.google.com/file/d/1yMGnwfYsxWbVp7r-oc8ls9qnOEDavG3h/view?usp=sharing) to ./experiments/pretrained_models/EFNet-REBlur.pth
   * ```python basicsr/test.py -opt options/test/REBlur/Finetune_EFNet.yml ```
   
-### Results
-TODO
 
 ### Qualitative results
 All the qualitative results can be downloaded through Google Drive:
