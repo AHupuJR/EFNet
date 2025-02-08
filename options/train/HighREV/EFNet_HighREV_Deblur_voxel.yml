@@ -1,0 +1,123 @@
+# general settings
+name: EFNet_highrev_single_deblur_voxel_debug  # add debug for quick debug
+model_type: ImageEventRestorationModel
+scale: 1
+num_gpu:  1 #4
+manual_seed: 10
+
+datasets:
+  train:
+    name: highrev-train
+    type: VoxelnpzPngSingleDeblurDataset
+
+    # dataroot: /work/lei_sun/HighREV/train
+    # dataroot_voxel: /work/lei_sun/HighREV_voxel/train/voxel
+    dataroot: /PATH/TO/DATASET/HighREV/train
+    dataroot_voxel: /PATH/TO/DATASET/HighREV_voxel/train/voxel
+
+    gt_size: 256
+    # keep true if use events
+    norm_voxel: true
+    use_hflip: true
+    use_rot: true
+
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+      
+    # data loader settings
+    use_shuffle: true
+    num_worker_per_gpu: 3
+    batch_size_per_gpu: 4 # 4 for 2080, 8 for titan
+    dataset_enlarge_ratio: 4  # accelarate, equals to the num_gpu
+    prefetch_mode: cpu
+    num_prefetch_queue: 2
+
+  val:
+    name: highrev-val
+    type: VoxelnpzPngSingleDeblurDataset
+
+    # dataroot: /work/lei_sun/HighREV/val
+    # dataroot_voxel: /work/lei_sun/HighREV_voxel/val/voxel
+    dataroot: /PATH/TO/DATASET/HighREV/train
+    dataroot_voxel: /PATH/TO/DATASET/HighREV_voxel/train/voxel
+
+
+    gt_size: ~
+    norm_voxel: true  
+
+    io_backend:
+      type: disk
+    
+    use_hflip: false
+    use_rot: false
+
+dataset_name: HighREV
+
+# network structures
+network_g:
+  type: EFNet
+  wf: 64 
+  fuse_before_downsample: true
+
+# path
+path:
+  pretrain_network_g: ~
+  strict_load_g: true
+  resume_state: ~
+  training_states: ~ # save current trainig model states, for resume
+
+# training settings
+train:
+  optim_g:
+    type: AdamW
+    lr: !!float 2e-4
+    weight_decay: !!float 1e-4
+    betas: [0.9, 0.99]
+
+  scheduler:
+    type: TrueCosineAnnealingLR
+    T_max: 200000 
+    eta_min: !!float 1e-7
+
+  total_iter: 200000
+  warmup_iter: -1 # no warm up
+
+  # losses
+  pixel_opt:
+    type: PSNRLoss
+    loss_weight: 0.5
+    reduction: mean
+
+# validation settings
+val:
+  val_freq: !!float 5e4 # 2e4
+  save_img: false  
+  grids: ~  
+  crop_size: ~ # use it of the gpu memory is not enough for whole image inference
+  max_minibatch: 8  
+
+  metrics:
+    psnr:
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+    
+    ssim:
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false   
+
+# logging settings
+logger:
+  print_freq: 200
+  save_checkpoint_freq: !!float 2e4
+  use_tb_logger: true
+  wandb:
+    project: your_project_name
+    resume_id: x
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500

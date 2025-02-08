@@ -19,12 +19,18 @@ We provide a simple instruction here. For more details please refer to [this rep
 
 #### HighREV dataset download
 
-[link](https://codalab.lisn.upsaclay.fr/my/datasets/download/9f275580-9b38-4984-b995-1e59e96b6111)
+[HighREV dataset](https://codalab.lisn.upsaclay.fr/my/datasets/download/9f275580-9b38-4984-b995-1e59e96b6111): Mandatory, with raw events.
 
 command: `wget -O HighREV.zip "https://codalab.lisn.upsaclay.fr/my/datasets/download/9f275580-9b38-4984-b995-1e59e96b6111"`
 
+
+[Processed voxel grid of events](https://codalab.lisn.upsaclay.fr/my/datasets/download/c83e95ab-d4e6-4b9f-b7de-e3d3b45356e3): Optional. Using the processed voxel grids can speed up the data processing when training.
+
+
 #### Dataset codes:
-`./basicsr/data/npz_image_dataset.py`
+`./basicsr/data/npz_image_dataset.py` for raw events
+`./basicsr/data/EFNet_HighREV_Deblur_voxel.py` for voxel grids
+
 
 #### Example:
 ```
